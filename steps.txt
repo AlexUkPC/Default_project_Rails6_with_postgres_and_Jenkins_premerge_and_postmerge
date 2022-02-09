@@ -1,4 +1,4 @@
-run git....
+run git https://github.com/AlexUkPC/Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge.git
 move setup.sh in the main folder 
 run setup.sh
 

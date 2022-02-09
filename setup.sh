@@ -43,6 +43,7 @@ docker run -it --rm -v $PWD:/opt/app rails-toolbox-$project_name rails new -d po
 
 rm -r $project_name/.git
 mv docker-entrypoint.sh $project_name
+mv wait-for $project_name
 chmod +x $project_name/docker-entrypoint.sh
 chmod +x *.sh
 

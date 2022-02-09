@@ -1,7 +1,7 @@
 ##move everything from default_project out
-# mv Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge/default_project/{*,.[^.]*} .
-# mv Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge/steps.txt .
-# rm -r Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge
+mv Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge/default_project/{*,.[^.]*} .
+mv Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge/steps.txt .
+sudo rm -r Default_project_Rails6_with_postgres_and_Jenkins_premerge_and_postmerge
 
 ##ask for project_name
 ##ask for db username and psw for dev
@@ -44,6 +44,7 @@ docker run -it --rm -v $PWD:/opt/app rails-toolbox-$project_name rails new -d po
 rm -r $project_name/.git
 mv docker-entrypoint.sh $project_name
 chmod +x $project_name/docker-entrypoint.sh
+chmod +x *.sh
 
 ####### this part doesn't working right now ######
 # grep -RiIl --exclude=setup.sh --exclude-dir=bkp 'pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>' | xargs sed -i 's/pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>/pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>\n  host: <%= ENV.fetch("DATABASE_HOST"){ "none" }  %>\n  username: <%= ENV.fetch("POSTGRES_USER"){ "none" }  %>\n  password: <%= ENV.fetch("POSTGRES_PASSWORD"){ "none" }  %>\n  database: <%= ENV.fetch("POSTGRES_DB"){ "none" }  %>\n  timeout: 5000/g'

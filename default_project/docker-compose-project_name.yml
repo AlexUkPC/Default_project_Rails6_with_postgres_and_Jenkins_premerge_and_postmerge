@@ -31,6 +31,8 @@ services:
     env_file:
       - .env/production/database_<project_name>
       - .env/production/web_<project_name>
+    networks:
+      - proxy
 volumes:
   db_data_<project_name>:
 networks:

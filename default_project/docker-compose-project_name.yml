@@ -14,6 +14,8 @@ services:
     networks:
       - proxy
     restart: always
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
   database_<project_name>:
     image: postgres
@@ -33,6 +35,8 @@ services:
       - .env/production/web_<project_name>
     networks:
       - proxy
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 volumes:
   db_data_<project_name>:
 networks:

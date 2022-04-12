@@ -50,3 +50,7 @@ volumes:
   gem_cache_<project_name>:
 networks:
   network_<project_name>:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
